@@ -26,7 +26,7 @@ Some methods, provided by this library may be called in two ways: synchronously 
 | Synchronous (blocking) call  | Asynchronous (non-blocking) call |
 | --- | --- |
 | Synchronous (blocking) method call waits untill all the communication process will be completed and returns only after that. | In asyncronous (non-blocking) calls the following method returns immediately after starting the communication process. All futher communication routines will be automatically processed in interrupts. After the communication process will be completed or in case of error the callback function will be called. |
-|![img](docs/sync.png)|![img](docs/async.png)|
+|![img](docs/sync.png){width=200px}|![img](docs/async.png){width=200px}|
 | **WARNINIG** Library's blocking methods **must not be called** from interrupts routines. In case of blocking call from an interrupt routine it will hang up and never return. | Non-blocking methods can be called from any interrupt routine |
 
 
