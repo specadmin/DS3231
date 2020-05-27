@@ -163,7 +163,19 @@ BYTE DS3231RTC::disable_SQW_output()
     set_bit(s_buf[1], INTCN);
     twi_wait();
     return twi_send(RTC_I2C_ADDR, 2, s_buf);
-}//-----------------------------------------------------------------------------
+}
+//-----------------------------------------------------------------------------
+bool DS3231RTC::connected()
+{
+    s_buf[0] = RTC_CR_STATUS;
+    twi_wait();
+    if(twi_send(RTC_I2C_ADDR, 1, s_buf) == TWI_ERR_NOT_FOUND)
+    {
+        return false;
+    }
+    return true;
+}
+//-----------------------------------------------------------------------------
 bool DS3231RTC::time_lost()
 {
     s_buf[0] = RTC_CR_STATUS;

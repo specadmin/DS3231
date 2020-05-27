@@ -55,6 +55,7 @@ struct DS3231RTC
 
     BYTE set_datetime(BYTE datetime[6], void (*callback)(BYTE result) = NULL);
 
+    bool connected();
     bool time_lost();
 
     BYTE force_temp_conversion();
